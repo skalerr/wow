@@ -1,0 +1,106 @@
+.rankings-page {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.rankings-hero,
+.rankings-panel {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(18, 23, 28, 0.96), rgba(10, 14, 18, 0.96));
+    border-radius: 1rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.rankings-hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.rankings-kicker {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c5a46d;
+}
+
+.rankings-realm-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.rankings-realm-chip {
+    padding: 0.65rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: inherit;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.rankings-realm-chip.is-active {
+    border-color: rgba(197, 164, 109, 0.45);
+    background: rgba(197, 164, 109, 0.12);
+}
+
+.rankings-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.rankings-panel {
+    padding: 1.25rem;
+}
+
+.rankings-panel-head {
+    margin-bottom: 1rem;
+}
+
+.rankings-list {
+    display: grid;
+}
+
+.rankings-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: inherit;
+    text-decoration: none;
+}
+
+.rankings-row:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.rankings-row:last-child {
+    padding-bottom: 0;
+}
+
+.rankings-row .main,
+.rankings-row .meta {
+    display: grid;
+}
+
+.rankings-row .meta {
+    text-align: right;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .rankings-hero,
+    .rankings-row {
+        flex-direction: column;
+    }
+
+    .rankings-row .meta {
+        text-align: left;
+    }
+}

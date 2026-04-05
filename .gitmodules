@@ -1,7 +1,0 @@
-[submodule "apps/acore-cms"]
-	path = apps/acore-cms
-	url = https://github.com/azerothcore/acore-cms
-	branch = master
-[submodule "apps/fusioncms"]
-	path = apps/fusioncms
-	url = https://github.com/FusionWowCMS/FusionCMS

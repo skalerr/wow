@@ -1,0 +1,46 @@
+{
+    "name": "Server",
+    "description": "Realm pulse, live activity and recent progression data",
+    "version": "1.0.0",
+    "date": "2026-03-15",
+    "author": {
+        "name": "Codex",
+        "website": "https://openai.com"
+    },
+    "admin": [
+        {
+            "text": "Website",
+            "icon": "cursor",
+            "links": [
+                {
+                    "text": "Media wall",
+                    "icon": "image",
+                    "controller": "media",
+                    "requirePermission": "canViewMediaAdmin"
+                }
+            ]
+        }
+    ],
+    "permissions": {
+        "view": { "default": true, "description": "View the server overview page" },
+        "canViewMediaAdmin": { "default": true, "description": "View the media wall manager in the admin panel" },
+        "canManageMedia": { "default": true, "description": "Create, edit and delete media wall entries" }
+    },
+    "roles": {
+        "view": {
+            "description": "View the server overview page",
+            "permissions": {
+                "view": true
+            }
+        },
+        "manage": {
+            "description": "Manage the server media wall. <font style='color:red;'>Admin-tool</font>",
+            "dangerLevel": 2,
+            "permissions": {
+                "canViewMediaAdmin": true,
+                "canManageMedia": true
+            }
+        }
+    },
+    "enabled": true
+}

@@ -1,0 +1,22 @@
+{
+    "name": "How to Play",
+    "description": "Client setup, realmlist, downloads and onboarding guide",
+    "version": "1.0.0",
+    "date": "2026-03-15",
+    "author": {
+        "name": "Codex",
+        "website": "https://openai.com"
+    },
+    "permissions": {
+        "view": { "default": true, "description": "View the how to play page" }
+    },
+    "roles": {
+        "view": {
+            "description": "View the how to play page",
+            "permissions": {
+                "view": true
+            }
+        }
+    },
+    "enabled": true
+}

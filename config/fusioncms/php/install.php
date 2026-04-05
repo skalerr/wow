@@ -81,7 +81,7 @@ function calculate_verifier(string $username, string $password, string $salt): s
     return str_pad($verifier, 32, chr(0), STR_PAD_RIGHT);
 }
 
-function ensure_soap_account(): void
+function connect_auth_db(): mysqli
 {
     $db = new mysqli(
         env_value('ACORE_DB_HOST'),
@@ -95,8 +95,12 @@ function ensure_soap_account(): void
         throw new RuntimeException('Auth DB connection failed: ' . $db->connect_error);
     }
 
-    $username = strtoupper(env_value('ACORE_SOAP_USER'));
-    $password = env_value('ACORE_SOAP_PASSWORD');
+    return $db;
+}
+
+function ensure_auth_account(mysqli $db, string $username, string $password): int
+{
+    $username = strtoupper($username);
 
     $stmt = $db->prepare('SELECT id FROM account WHERE username = ?');
     $stmt->bind_param('s', $username);
@@ -122,6 +126,19 @@ function ensure_soap_account(): void
         $accountId = (int) $row['id'];
     }
 
+    return $accountId;
+}
+
+function ensure_soap_account(): void
+{
+    $db = connect_auth_db();
+
+    $accountId = ensure_auth_account(
+        $db,
+        env_value('ACORE_SOAP_USER'),
+        env_value('ACORE_SOAP_PASSWORD')
+    );
+
     $stmt = $db->prepare('INSERT INTO account_access (id, gmlevel, RealmID, comment) VALUES (?, 3, -1, ?) ON DUPLICATE KEY UPDATE gmlevel = VALUES(gmlevel), RealmID = VALUES(RealmID), comment = VALUES(comment)');
     $comment = 'FusionCMS SOAP account';
     $stmt->bind_param('is', $accountId, $comment);
@@ -131,17 +148,32 @@ function ensure_soap_account(): void
     $db->close();
 }
 
+function ensure_owner_account(): void
+{
+    $db = connect_auth_db();
+
+    ensure_auth_account(
+        $db,
+        env_value('FUSIONCMS_OWNER_ACCOUNT', 'ADMIN'),
+        env_value('FUSIONCMS_OWNER_PASSWORD', env_value('FUSIONCMS_SECURITY_CODE'))
+    );
+
+    $db->close();
+}
+
 function install_fusioncms(): void
 {
     $baseUrl = env_value('FUSION_INSTALL_BASE', 'http://fusion-web');
     $lockFile = '/var/www/html/writable/install/.lock';
+
+    ensure_soap_account();
+    ensure_owner_account();
 
     if (is_file($lockFile)) {
         echo "FusionCMS already installed.\n";
         return;
     }
 
-    ensure_soap_account();
     wait_for_install_page($baseUrl);
 
     $dbPayload = [

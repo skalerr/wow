@@ -1,0 +1,36 @@
+{
+    "name": "acore-cms",
+    "version": "1.0.0",
+    "engines": {
+        "node": "14.*"
+    },
+    "author": {
+        "name": "AzerothCore",
+        "url": "https://azerothcore.org"
+    },
+    "config": {
+        "docker_extra_file": "docker-compose.default.yml"
+    },
+    "contributors": [
+        "Yehonal",
+        "Helias"
+    ],
+    "license": "AGPL3",
+    "scripts": {
+        "docker:install": "docker compose up --build",
+        "docker:update": "docker compose pull && docker compose build",
+        "docker:start": "docker compose up",
+        "docker:start:d": "docker compose up -d",
+        "docker:shell": "docker compose exec php bash",
+        "docker:remove": "docker compose down -rmi",
+        "docker:stop": "docker compose stop",
+        "docker:logs": "docker compose logs --tail=200 --follow",
+        "docker:db:export": "docker compose up -d wp-db && docker compose exec wp-db /apps/db_exporter/db_export.sh",
+        "docker:db:import": "docker compose up -d wp-db && docker compose exec wp-db /apps/db_exporter/db_import.sh",
+        "docker:srv:export": "docker compose cp php:/var/www/html/* srv",
+        "docker:srv:import": "bash apps/import-srv.sh"
+    },
+    "devDependencies": {
+        "@types/node": "^14.0.13"
+    }
+}

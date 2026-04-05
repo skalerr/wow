@@ -8,6 +8,7 @@ RUN apt-get update -y \
         libgmp-dev \
         libicu-dev \
         libjpeg62-turbo-dev \
+        libonig-dev \
         libpng-dev \
         libxml2-dev \
         libzip-dev \

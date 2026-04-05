@@ -182,6 +182,9 @@ COPY --chown=$DOCKER_USER:$DOCKER_USER \
      --from=build \
      /azerothcore/env/dist/bin/worldserver /azerothcore/env/dist/bin/worldserver
 
+COPY --chown=$DOCKER_USER:$DOCKER_USER \
+  modules /azerothcore/modules
+
 VOLUME /azerothcore/env/dist/etc
 
 CMD ["worldserver"]

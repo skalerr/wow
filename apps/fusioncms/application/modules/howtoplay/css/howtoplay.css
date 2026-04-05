@@ -1,0 +1,132 @@
+.howtoplay-page {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.howtoplay-hero,
+.howtoplay-panel,
+.howtoplay-step,
+.howtoplay-faq-item,
+.howtoplay-resource {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(17, 23, 30, 0.96), rgba(10, 14, 18, 0.96));
+    border-radius: 1rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.howtoplay-hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.howtoplay-kicker {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9fd0ff;
+}
+
+.howtoplay-realm-switch,
+.howtoplay-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.howtoplay-realm-chip,
+.howtoplay-links a {
+    padding: 0.65rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: inherit;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.howtoplay-realm-chip.is-active {
+    border-color: rgba(159, 208, 255, 0.45);
+    background: rgba(159, 208, 255, 0.12);
+}
+
+.howtoplay-steps,
+.howtoplay-layout,
+.howtoplay-faq,
+.howtoplay-resource-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.howtoplay-steps,
+.howtoplay-faq,
+.howtoplay-resource-list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.howtoplay-layout {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.howtoplay-step,
+.howtoplay-panel,
+.howtoplay-faq-item,
+.howtoplay-resource {
+    padding: 1rem;
+}
+
+.howtoplay-step span {
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    border-radius: 999px;
+    background: rgba(159, 208, 255, 0.12);
+    color: #9fd0ff;
+}
+
+.howtoplay-panel-head {
+    margin-bottom: 1rem;
+}
+
+.howtoplay-command code,
+.howtoplay-empty {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.howtoplay-command {
+    display: grid;
+    gap: 0.4rem;
+    margin-top: 1rem;
+}
+
+.howtoplay-realm-card {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.howtoplay-discord img {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
+}
+
+.howtoplay-resource {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.howtoplay-faq-item p {
+    margin: 0.5rem 0 0;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 768px) {
+    .howtoplay-hero {
+        flex-direction: column;
+    }
+}

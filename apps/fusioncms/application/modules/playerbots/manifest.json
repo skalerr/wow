@@ -1,0 +1,22 @@
+{
+    "name": "Playerbots",
+    "description": "Live overview and FAQ for the playerbot ecosystem",
+    "version": "1.0.0",
+    "date": "2026-03-15",
+    "author": {
+        "name": "Codex",
+        "website": "https://openai.com"
+    },
+    "permissions": {
+        "view": { "default": true, "description": "View the playerbots page" }
+    },
+    "roles": {
+        "view": {
+            "description": "View the playerbots page",
+            "permissions": {
+                "view": true
+            }
+        }
+    },
+    "enabled": true
+}

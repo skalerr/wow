@@ -1,0 +1,22 @@
+{
+    "name": "Rankings",
+    "description": "Top players, guilds and arena ladders",
+    "version": "1.0.0",
+    "date": "2026-03-15",
+    "author": {
+        "name": "Codex",
+        "website": "https://openai.com"
+    },
+    "permissions": {
+        "view": { "default": true, "description": "View the rankings page" }
+    },
+    "roles": {
+        "view": {
+            "description": "View the rankings page",
+            "permissions": {
+                "view": true
+            }
+        }
+    },
+    "enabled": true
+}
