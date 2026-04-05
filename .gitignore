@@ -32,6 +32,7 @@
 
 /*.override.yml
 /*.override.yaml
+!/docker-compose.override.yml
 
 !.gitkeep
 
