@@ -19,6 +19,7 @@
 /env/dist/*
 !/env/dist/.gitkeep
 !/env/dist/etc/
+!/env/dist/etc/**
 !/env/dist/etc/modules/
 !/env/dist/etc/modules/**
 /env/user/*
