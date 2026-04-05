@@ -5,6 +5,8 @@
 /conf/*
 !/conf/dist
 /modules/*
+!/modules/
+!/modules/**
 !/modules/*.md
 !/modules/*.sh
 !/modules/CMakeLists.txt
@@ -16,6 +18,9 @@
 !/var/ccache/.gitkeep
 /env/dist/*
 !/env/dist/.gitkeep
+!/env/dist/etc/
+!/env/dist/etc/modules/
+!/env/dist/etc/modules/**
 /env/user/*
 /.env*
 /apps/joiner
